@@ -99,6 +99,7 @@ def outputConfiguration(firstConfig, successful1, secondConfig, successful2, use
         print(firstConfig, HAPPY if successful1 else SAD, "->",\
               secondConfig, HAPPY if successful2 else SAD)
         
+
 def testConfiguration(configuration, strategy):
     '''
     Return whether the given strategy works for the configuration of boxes.
