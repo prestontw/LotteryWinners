@@ -56,20 +56,23 @@ def main(n = 4,\
 
     numConfigurations = 0
     passedConfigurations = 0
+
+    output = ""
     
     for configuration in permutations(boxes):
         # try the strategies
         possiblyAlteredConfiguration = beneficiaryStrategyFunction(list(configuration))
         successful = testConfiguration(possiblyAlteredConfiguration, participantStrategyFunction)
 
-        print(configuration, "->", possiblyAlteredConfiguration, ":", end=" ")
+        output += str(configuration) + " -> " + str(possiblyAlteredConfiguration) + " : "
         if successful:
             passedConfigurations += 1
-            print("passes")
+            output += str("passes\n")
         else:
-            print("fails")
+            output += str("fails\n")
         numConfigurations += 1
 
+    print(output)
     print("Out of", numConfigurations, "the strategy worked for", passedConfigurations)
     print(passedConfigurations / numConfigurations * 100, "%", sep="")
 
@@ -103,4 +106,4 @@ def testParticipant(configuration, participantID, strategyFunction):
 
 
 if __name__ == "__main__":
-    main(4, simpleStrategy, makeConfigurationAscending)
+    main(10, simpleStrategy, makeConfigurationAscending)
