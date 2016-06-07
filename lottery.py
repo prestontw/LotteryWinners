@@ -57,25 +57,34 @@ def main(n = 4,\
 
     numConfigurations = 0
     passedConfigurations = 0
+    prepassedConfigurations = 0
 
     output = ""
+    GREEN = '\033[92m'
+    RED = '\033[91m'
+    END = '\033[0m'
     
     for configuration in permutations(boxes):
         # try the strategies
         possiblyAlteredConfiguration = beneficiaryStrategyFunction(list(configuration))
+
+        unalteredSuccessful = testConfiguration(list(configuration), participantStrategyFunction)
         successful = testConfiguration(possiblyAlteredConfiguration, participantStrategyFunction)
 
-        print(str(configuration) + " -> " + str(possiblyAlteredConfiguration) + " : ", sep = "", end = "")
+        print(GREEN if unalteredSuccessful else RED + str(configuration) + END + \
+              " -> " + \
+              GREEN if successful else RED + str(possiblyAlteredConfiguration) + END, sep = "")
         if successful:
             passedConfigurations += 1
-            print("passes")
-        else:
-            print("fails")
+        if unalteredSuccessful:
+            prepassedConfigurations += 1
         numConfigurations += 1
 
     print(output)
-    print("Out of", numConfigurations, "the strategy worked for", passedConfigurations)
-    print(passedConfigurations / numConfigurations * 100, "%", sep="")
+    print("Out of", numConfigurations, "the strategy worked for", prepassedConfigurations, "before the beneficiary")
+    print("Out of", numConfigurations, "the strategy worked for", passedConfigurations, "after the beneficiary")
+    print(prepassedConfigurations / numConfigurations * 100, "% versus ",\
+          passedConfigurations / numConfigurations * 100, "%", sep="")
 
 
 def testConfiguration(configuration, strategy):
