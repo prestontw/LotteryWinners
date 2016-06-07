@@ -106,4 +106,4 @@ def testParticipant(configuration, participantID, strategyFunction):
 
 
 if __name__ == "__main__":
-    main(10, simpleStrategy, makeConfigurationAscending)
+    main(6, simpleStrategy, makeConfigurationAscending)
