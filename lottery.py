@@ -60,9 +60,6 @@ def main(n = 4,\
     prepassedConfigurations = 0
 
     output = ""
-    GREEN = '\033[92m'
-    RED = '\033[91m'
-    END = '\033[0m'
     
     for configuration in permutations(boxes):
         # try the strategies
@@ -71,9 +68,8 @@ def main(n = 4,\
         unalteredSuccessful = testConfiguration(list(configuration), participantStrategyFunction)
         successful = testConfiguration(possiblyAlteredConfiguration, participantStrategyFunction)
 
-        print((GREEN if unalteredSuccessful else RED) + str(configuration) + END + \
-              " -> " + \
-              (GREEN if successful else RED) + str(possiblyAlteredConfiguration) + END, sep = "")
+        outputConfiguration(configuration, unalteredSuccessful, possiblyAlteredConfiguration, successful)
+        
         if successful:
             passedConfigurations += 1
         if unalteredSuccessful:
@@ -83,10 +79,26 @@ def main(n = 4,\
     print(output)
     print("Out of", numConfigurations, "the strategy worked for", prepassedConfigurations, "before the beneficiary")
     print("Out of", numConfigurations, "the strategy worked for", passedConfigurations, "after the beneficiary")
-    print(prepassedConfigurations / numConfigurations * 100, "% versus ",\
+    print(prepassedConfigurations / numConfigurations * 100, "% -> ",\
           passedConfigurations / numConfigurations * 100, "%", sep="")
 
 
+def outputConfiguration(firstConfig, successful1, secondConfig, successful2, useColors=False):
+    GREEN = '\033[92m'
+    RED = '\033[91m'
+    END = '\033[0m'
+
+    HAPPY = ":D"
+    SAD = ":/"
+    
+    if useColors:
+        print((GREEN if successful1 else RED) + str(firstConfig) + END + \
+              " -> " + \
+              (GREEN if successful2 else RED) + str(secondConfig) + END, sep = "")
+    else:
+        print(firstConfig, HAPPY if successful1 else SAD, "->",\
+              secondConfig, HAPPY if successful2 else SAD)
+        
 def testConfiguration(configuration, strategy):
     '''
     Return whether the given strategy works for the configuration of boxes.
