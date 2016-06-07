@@ -71,9 +71,9 @@ def main(n = 4,\
         unalteredSuccessful = testConfiguration(list(configuration), participantStrategyFunction)
         successful = testConfiguration(possiblyAlteredConfiguration, participantStrategyFunction)
 
-        print(GREEN if unalteredSuccessful else RED + str(configuration) + END + \
+        print((GREEN if unalteredSuccessful else RED) + str(configuration) + END + \
               " -> " + \
-              GREEN if successful else RED + str(possiblyAlteredConfiguration) + END, sep = "")
+              (GREEN if successful else RED) + str(possiblyAlteredConfiguration) + END, sep = "")
         if successful:
             passedConfigurations += 1
         if unalteredSuccessful:
