@@ -27,7 +27,26 @@ def identityConfiguration(configuration):
     return configuration
 
 
-def main(n = 4, participantStrategyFunction = simpleStrategy, beneficiaryStrategyFunction = identityConfiguration):
+def makeConfigurationAscending(configuration):
+    pivot = len(configuration) // 2
+    for index in range(pivot):
+        if configuration[index] >= pivot:
+            # then start looking for a small number to the right of pivot
+            for switchIndex in range(pivot, len(configuration)):
+                if configuration[switchIndex] < pivot:
+                    # then swap the two numbers
+                    temp = configuration[index]
+                    configuration[index] = configuration[switchIndex]
+                    configuration[switchIndex] = temp
+
+                    return configuration
+
+    # else given configuration works
+    return configuration
+
+def main(n = 4,\
+         participantStrategyFunction = simpleStrategy,\
+         beneficiaryStrategyFunction = identityConfiguration):
     '''
     For each permutation of boxes,
     test the given function and display its success rate.
@@ -84,4 +103,4 @@ def testParticipant(configuration, participantID, strategyFunction):
 
 
 if __name__ == "__main__":
-    main()
+    main(4, simpleStrategy, makeConfigurationAscending)
