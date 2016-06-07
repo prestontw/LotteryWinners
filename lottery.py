@@ -8,6 +8,8 @@ from itertools import permutations
 
 def simpleStrategy(idNumber, previousGuessesAndResults, numberOfBoxes):
     '''
+    Sample strategy used by default in running of the lottery program.
+    ***
     Given the id number of a participant,
     their previous guesses and their results,
     and the number of boxes total,
@@ -24,6 +26,9 @@ def simpleStrategy(idNumber, previousGuessesAndResults, numberOfBoxes):
 
 
 def makeConfigurationAscending(configuration):
+    '''
+    Sample strategy of the beneficiary used in running of the lottery.
+    '''
     pivot = len(configuration) // 2
     for index in range(pivot):
         if configuration[index] >= pivot:
