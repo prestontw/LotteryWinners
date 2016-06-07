@@ -64,12 +64,12 @@ def main(n = 4,\
         possiblyAlteredConfiguration = beneficiaryStrategyFunction(list(configuration))
         successful = testConfiguration(possiblyAlteredConfiguration, participantStrategyFunction)
 
-        output += str(configuration) + " -> " + str(possiblyAlteredConfiguration) + " : "
+        print(str(configuration) + " -> " + str(possiblyAlteredConfiguration) + " : ", sep = "", end = "")
         if successful:
             passedConfigurations += 1
-            output += str("passes\n")
+            print("passes")
         else:
-            output += str("fails\n")
+            print("fails")
         numConfigurations += 1
 
     print(output)
