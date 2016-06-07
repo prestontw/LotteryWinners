@@ -47,7 +47,7 @@ def makeConfigurationAscending(configuration):
 
 def main(n = 4,\
          participantStrategyFunction = simpleStrategy,\
-         beneficiaryStrategyFunction = identityConfiguration):
+         beneficiaryStrategyFunction = makeConfigurationAscending):
     '''
     For each permutation of boxes,
     test the given function and display its success rate.
@@ -107,4 +107,4 @@ def testParticipant(configuration, participantID, strategyFunction):
 
 
 if __name__ == "__main__":
-    main(6, simpleStrategy, makeConfigurationAscending)
+    main(4, simpleStrategy, makeConfigurationAscending)
