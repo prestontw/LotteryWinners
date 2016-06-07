@@ -23,10 +23,6 @@ def simpleStrategy(idNumber, previousGuessesAndResults, numberOfBoxes):
         return previousGuessesAndResults[-1][0] + 1
 
 
-def identityConfiguration(configuration):
-    return configuration
-
-
 def makeConfigurationAscending(configuration):
     pivot = len(configuration) // 2
     for index in range(pivot):
