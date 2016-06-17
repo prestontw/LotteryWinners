@@ -6,7 +6,7 @@ One hundred participants sign up for a lottery event.
 Each participant is assigned a unique number, from 1 to 100.
 Corresponding to each participant is a lottery ticket with their number in a box in another room.
 However, the boxes are randomly ordered.
-Each prisoner can open no more than 50 boxes.
+Each participant can open no more than 50 boxes.
 If each participant finds their number, each of them wins a million dollars.
 If even one of them does not find their number, none of them gets any money.
 
