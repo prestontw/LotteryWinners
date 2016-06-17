@@ -31,4 +31,4 @@ What is the strategy for the participants and the beneficiary?
 I claim that once the beneficiary goes,
 if they optimally switch two boxes,
 then each participant will always get their number.
-The probability without the beneficiary for 100 prisoners is ~33%.
+The probability without the beneficiary for 100 participants is ~33%.
