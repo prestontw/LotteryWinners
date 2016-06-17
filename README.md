@@ -6,6 +6,7 @@ One hundred participants sign up for a lottery event.
 Each participant is assigned a unique number, from 1 to 100.
 Corresponding to each participant is a lottery ticket with their number in a box in another room.
 However, the boxes are randomly ordered.
+Each prisoner can open no more than 50 boxes.
 If each participant finds their number, each of them wins a million dollars.
 If even one of them does not find their number, none of them gets any money.
 
@@ -29,5 +30,5 @@ then the participants continue as normal.
 What is the strategy for the participants and the beneficiary?
 I claim that once the beneficiary goes,
 if they optimally switch two boxes,
-then the each participant will always get their number.
+then each participant will always get their number.
 The probability without the beneficiary for 100 prisoners is ~33%.
