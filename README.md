@@ -22,13 +22,13 @@ What is the best strategy for the participants that maximizes their probability 
 
 ### A Caveat
 To avoid this being an awful probability problem,
-we allow a 'beneficiary' to go into the room once before all participants go.
-This beneficiary is allowed to open all of the boxes,
+we allow a 'humanitarian' to go into the room once before all participants go.
+This humanitarian is allowed to open all of the boxes,
 switch two boxes,
 then the participants continue as normal.
 
-What is the strategy for the participants and the beneficiary?
-I claim that once the beneficiary goes,
+What is the strategy for the participants and the humanitarian?
+I claim that once the humanitarian goes,
 if they optimally switch two boxes,
 then each participant will always get their number.
-The probability without the beneficiary for 100 participants is ~33%.
+The probability without the humanitarian for 100 participants is ~33%.
